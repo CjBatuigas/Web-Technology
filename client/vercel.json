@@ -1,5 +1,5 @@
 {
     "rewrites": [
-        { "source": "/aims/(.*)", "destination": "/index.html" }
+        { "source": "/aims/(.*)", "destination": "/api/aims/$1" }
     ]
 }
