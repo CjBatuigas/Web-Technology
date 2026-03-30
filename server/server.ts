@@ -10,9 +10,22 @@ const app = express();
 // Apply security middleware
 applySecurity(app);
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://web-technology-cyho.vercel.app',
+  'https://web-technology-cyho-ekiuj72uh-cjbatuigas-projects.vercel.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow only your frontend port
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
   credentials: true
 }));
 
