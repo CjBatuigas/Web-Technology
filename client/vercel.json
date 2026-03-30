@@ -1,5 +1,15 @@
 {
-    "rewrites": [
-        { "source": "/aims/(.*)", "destination": "/api/aims/$1" }
-    ]
+  "version": 3,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
 }
