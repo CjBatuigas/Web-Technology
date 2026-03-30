@@ -13,13 +13,15 @@ function App() {
   const [errors, setErrors] = useState<{username?: string; password?: string}>({});
   const [loading, setLoading] = useState(false);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
   // GOOGLE LOGIN
   const googleLogin = async (credentialResponse: CredentialResponse) => {
     const decoded: any = jwtDecode(credentialResponse.credential || "");
     try {
       // const confirmed = window.confirm("Login using Google account?");
       // if(!confirmed) return;
-      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/AOuth`, {
+      const response = await axios.post(`${API_URL}/aims/login/AOuth`, {
         email: decoded.email
       })
       if(response.data.success){
@@ -61,7 +63,7 @@ function App() {
 
     try{
       setLoading(true);
-      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/credential`, {
+      const response = await axios.post(`${API_URL}/aims/login/credential`, {
         username: username,
         password: password
       });
