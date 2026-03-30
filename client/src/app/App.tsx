@@ -19,7 +19,8 @@ function App() {
     try {
       // const confirmed = window.confirm("Login using Google account?");
       // if(!confirmed) return;
-      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/AOuth`, {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await axios.post(`${API_URL}/aims/login/AOuth`, {
         email: decoded.email
       })
       if(response.data.success){
@@ -61,7 +62,8 @@ function App() {
 
     try{
       setLoading(true);
-      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/credential`, {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await axios.post(`${API_URL}/aims/login/credential`, {
         username: username,
         password: password
       });
