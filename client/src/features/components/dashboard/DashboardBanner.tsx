@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../assets/styles/Dashboard.css";
 
 // Functional component that displays the dashboard banner

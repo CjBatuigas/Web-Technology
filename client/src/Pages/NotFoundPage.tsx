@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom"
 
 // Component displayed when the user navigates to a route that does not exist

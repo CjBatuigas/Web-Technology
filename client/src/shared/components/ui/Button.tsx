@@ -1,5 +1,3 @@
-import React from "react"
-
 // Defines the expected properties (props) for the Button component
 interface Props {
     children: string; // Text that will appear inside the button

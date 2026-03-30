@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import AddDocumentNo from './AddDocumentNo';
 import IncomingDoc from './IncomingDoc';
 import UploadDoc from './UploadDoc';
