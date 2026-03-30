@@ -62,8 +62,7 @@ function App() {
 
     try{
       setLoading(true);
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-      const response = await axios.post(`${API_URL}/aims/login/credential`, {
+      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/credential`, {
         username: username,
         password: password
       });
