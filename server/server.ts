@@ -26,6 +26,13 @@ app.use(express.json());
 // Mount all API routes under /api
 console.log("por", process.env.PORT);
 app.use('/aims', apiRouter);
-app.listen(process.env.PORT, () => {
-  console.log(`🚀 Server running`);
-});
+
+// for local run (not serverless Vercel)
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`🚀 Server running on http://localhost:${port}`);
+  });
+}
+
+export default app;

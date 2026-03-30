@@ -44,7 +44,7 @@ const AddDocumentNo = () => {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:8080/aims/documents/generateDocumentNo",
+        `${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/generateDocumentNo`,
         { params: { issuanceType } }
       );
 

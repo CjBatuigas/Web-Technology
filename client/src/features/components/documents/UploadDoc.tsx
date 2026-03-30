@@ -84,7 +84,7 @@ const UploadDoc = () => {
       if (userID) formData.append("userID", userID);
 
       const res = await axios.post(
-        "http://localhost:8080/aims/documents/uploadDocument",
+        `${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/uploadDocument`,
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );

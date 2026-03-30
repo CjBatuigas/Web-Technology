@@ -37,7 +37,7 @@ const MyDocuments = () => {
 
   useEffect(() => {
     const load = async () => {
-      const response = await axios.get("http://localhost:8080/aims/documents/myDocuments", {
+      const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/myDocuments`, {
       params : {userID}
     });
     setDataTable(response.data.documents ?? response.data ?? []);

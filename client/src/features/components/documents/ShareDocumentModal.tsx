@@ -36,7 +36,7 @@ const ShareDocumentModal: React.FC<ShareDocumentModalProps> = ({
 
   // Fetch all employees from the backend so they can be searched and selected
   const fetchEmployees = async () => {
-    const response = await axios.get("http://localhost:8080/aims/employees/allEmployees");
+    const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/allEmployees`);
   
     // Some APIs wrap the data inside response.data.users while others return directly
   
@@ -103,7 +103,7 @@ const ShareDocumentModal: React.FC<ShareDocumentModalProps> = ({
       return
     }else{
       const emails = selectedUsers.map((u) => u.email);
-      const emailNotification = await axios.post("http://localhost:8080/aims/emailNotification/sendEmail", {
+      const emailNotification = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/emailNotification/sendEmail`, {
         emails: emails,
         subject: issuanceType+" No. "+documentNo,
         message: "You have new document forwarded from records section!"
@@ -115,7 +115,7 @@ const ShareDocumentModal: React.FC<ShareDocumentModalProps> = ({
 
     // Updating share documents model
     const emails = selectedUsers.map((u) => u.email);
-    const response = await axios.post("http://localhost:8080/aims/documents/shareDocument", {
+    const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/shareDocument`, {
       emails: emails,
       documentNo: documentNo
     })

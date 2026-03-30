@@ -110,7 +110,7 @@ const EditDocumentModal: React.FC<EditDocumentModalProps> = ({isOpen, onClose, s
       }
 
       const response = await axios.put(
-        "http://localhost:8080/aims/documents/updateDocument",
+        `${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/updateDocument`,
         fileData,
         {
           headers: { 'Content-Type': 'multipart/form-data' }

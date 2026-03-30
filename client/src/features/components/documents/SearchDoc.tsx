@@ -96,7 +96,7 @@ const SearchDoc = () => {
     const confirmed = window.confirm("Are you sure you want to delete this document?");
     if (!confirmed) return;
 
-    const response = await axios.delete(`http://localhost:8080/aims/documents/deleteDocument/${documentNo}`, {
+    const response = await axios.delete(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/deleteDocument/${documentNo}`, {
       data: { file }
     });
 
@@ -109,7 +109,7 @@ const SearchDoc = () => {
   }
 
   const fetchDocuments = async () => {
-    const response = await axios.get("http://localhost:8080/aims/documents/allDocuments");
+    const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/allDocuments`);
     setDataTable(response.data.documents ?? response.data ?? []);
   }
 
@@ -136,7 +136,7 @@ const SearchDoc = () => {
     if (subject) filters.subject = subject;
     if (keyword) filters.keyword = keyword;
 
-    const response = await axios.get("http://localhost:8080/aims/documents/searchDocuments", { params: filters });
+    const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/searchDocuments`, { params: filters });
     setDataTable(response.data.documents ?? response.data ?? []);
   }
 

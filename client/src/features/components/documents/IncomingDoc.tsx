@@ -44,7 +44,7 @@ const IncomingDoc = () => {
   const acknowledgeDocument = async (documentNo: string, action: string) => {
     try {
       alert("Action is: "+ action);
-      const response = await axios.post("http://localhost:8080/aims/documents/acknowledgeDocument", {
+      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/acknowledgeDocument`, {
         documentNo, action, userID
       });
       if(response.data.success){
@@ -67,7 +67,7 @@ const IncomingDoc = () => {
   
   // Fetching data for Table
   const fetchDocuments = async () => {
-    const response = await axios.get("http://localhost:8080/aims/documents/incomingDocuments", {
+    const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/documents/incomingDocuments`, {
       params : {userID}
     });
     setDataTable(response.data.documents ?? response.data ?? []);

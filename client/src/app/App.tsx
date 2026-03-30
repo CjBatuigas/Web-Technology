@@ -19,7 +19,7 @@ function App() {
     try {
       // const confirmed = window.confirm("Login using Google account?");
       // if(!confirmed) return;
-      const response = await axios.post("http://localhost:8080/aims/login/AOuth", {
+      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/AOuth`, {
         email: decoded.email
       })
       if(response.data.success){
@@ -61,7 +61,7 @@ function App() {
 
     try{
       setLoading(true);
-      const response = await axios.post("http://localhost:8080/aims/login/credential", {
+      const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/login/credential`, {
         username: username,
         password: password
       });

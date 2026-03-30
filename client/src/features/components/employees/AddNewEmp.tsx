@@ -32,9 +32,9 @@ const AddNewEmp = () => {
   const fetchEmployees = async () => {
    
     // Fetch all employees from backend API 
-    const response = await axios.get("http://localhost:8080/aims/employees/allEmployees");
+    const response = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/allEmployees`);
     setUsers(response.data.users ?? response.data ?? []);
-    const userID = await axios.get("http://localhost:8080/aims/employees/newEmployee");
+    const userID = await axios.get(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/newEmployee`);
     setEmployeeID(userID.data.nextID);
   }
 
@@ -120,7 +120,7 @@ const AddNewEmp = () => {
     try{
 
       // Send DELETE request to backend to remove employee by ID
-      const response = await axios.delete(`http://localhost:8080/aims/employees/deleteEmployee/${userID}`);
+      const response = await axios.delete(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/deleteEmployee/${userID}`);
       alert(response.data.message);
       
       // Refresh employee list after deletion
@@ -149,7 +149,7 @@ const AddNewEmp = () => {
 
       // If editingId is null → create a new employee
       if(editingId === null){
-        const response = await axios.post("http://localhost:8080/aims/employees/addEmployee", {
+        const response = await axios.post(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/addEmployee`, {
         userID: userID,
         fname: fname,
         mname: mname,
@@ -177,7 +177,7 @@ const AddNewEmp = () => {
       }else{
         
         // If editingId exists → update existing employee
-        const response = await axios.put(`http://localhost:8080/aims/employees/updateEmployee/${userID}`, {
+        const response = await axios.put(`${import.meta.env.VITE_GOOGLE_CLIENT_ID}/aims/employees/updateEmployee/${userID}`, {
           fname: fname,
           mname: mname,
           lname: lname,
