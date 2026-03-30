@@ -1,5 +1,4 @@
 import "../../../assets/styles/Dashboard.css";
-import ".../public/AIMS-Banner.png";
 
 // Functional component that displays the dashboard banner
 const DashboardBanner = () => {
@@ -7,7 +6,7 @@ const DashboardBanner = () => {
     <div className="dashboard-banner">
       <div className="banner-image">
         
-        <img src="../public/AIMS-Banner.png"/>
+        <img src="/AIMS-Banner.png" alt="AIMS Banner" />
       </div>
     </div>
   );
