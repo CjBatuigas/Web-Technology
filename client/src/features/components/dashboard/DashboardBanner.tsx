@@ -1,4 +1,5 @@
 import "../../../assets/styles/Dashboard.css";
+import ".../public/AIMS-Banner.png";
 
 // Functional component that displays the dashboard banner
 const DashboardBanner = () => {
